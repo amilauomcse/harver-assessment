@@ -148,7 +148,7 @@ function printFizzBuzzAsynchronouslyWithError() {
 
 }
 
-//Task 5
+//Task 5 first part
 setTimeout(writeFizzBuzzSynchronouslyWithErrorToFile, 6000);
 
 function writeFizzBuzzSynchronouslyWithErrorToFile() {
@@ -181,6 +181,7 @@ function writeFizzBuzzSynchronouslyWithErrorToFile() {
     })
 }
 
+//Task 5 second part
 setTimeout(writeFizzBuzzAsynchronouslyWithErrorToFile, 7000);
 
 function writeFizzBuzzAsynchronouslyWithErrorToFile() {
@@ -218,7 +219,7 @@ function writeFizzBuzzAsynchronouslyWithErrorToFile() {
 }
 
 
-//Bonus Task
+//Bonus Task first part
 setTimeout(printFizzBuzzAsynchronouslyInAscendingOrder, 8000);
 
 function printFizzBuzzAsynchronouslyInAscendingOrder() {
@@ -242,6 +243,7 @@ function printFizzBuzzAsynchronouslyInAscendingOrder() {
     });
 }
 
+//Bonus Task second part
 setTimeout(printFizzBuzzAsynchronouslyWithSlowOption, 10000);
 
 
