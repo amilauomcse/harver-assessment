@@ -1,7 +1,6 @@
 const {getRandomWordSync, getRandomWord} = require('word-maker');
 const promise = require('promise');
 const fs = require('fs');
-const syncLoop = require('sync-loop');
 
 const numberOfLoops = 100;
 const firstDividingNumber = 3;
@@ -203,20 +202,16 @@ function writeFizzBuzzAsynchronouslyWithErrorToFile() {
 //Bonus Task first part
 setTimeout(printFizzBuzzAsynchronouslyInAscendingOrder, 8000);
 
-function printFizzBuzzAsynchronouslyInAscendingOrder() {
+async function printFizzBuzzAsynchronouslyInAscendingOrder() {
     let output = `<<<<<<<<<< Starts Printing FizzBuzz Asynchronously in Ascending Order >>>>>>>>>>>>\n`;
     let startTime = (new Date()).getTime();
-    syncLoop(numberOfLoops, function (loop) {
-        let index = loop.iteration() + 1;
-        getRandomWord().then(word => {
-            output += findFizzBuzz(index, word) + `\n`;
-            loop.next();
-        })
-    }, function () {
-        let endTime = (new Date()).getTime();
-        output += `<<<<<<<<<< Ends Printing FizzBuzz Asynchronously in Ascending Order, Time taken : ${endTime - startTime} ms >>>>>>>>>>>>\n`;
-        console.log(output);
-    });
+    for (let index = 1; index <= numberOfLoops; index++) {
+        const word = await getRandomWord();
+        output += findFizzBuzz(index, word) + `\n`;
+    }
+    let endTime = (new Date()).getTime();
+    output += `<<<<<<<<<< Ends Printing FizzBuzz Asynchronously in Ascending Order, Time taken : ${endTime - startTime} ms >>>>>>>>>>>>\n`;
+    console.log(output);
 }
 
 //Bonus Task second part
