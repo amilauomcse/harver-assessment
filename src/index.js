@@ -237,13 +237,11 @@ setTimeout(printFizzBuzzAsynchronouslyWithSlowOption, 10000);
 function printFizzBuzzAsynchronouslyWithSlowOption() {
     let output = `<<<<<<<<<< Starts Printing FizzBuzz Asynchronously with Slow Option >>>>>>>>>>>>\n`;
 
-    let promiseList = [];
     const startTime = (new Date()).getTime();
-    [...Array(numberOfLoops)].map(() => {
-        promiseList.push(getRandomWord({slow: true}));
-    });
     Promise.all(
-        promiseList
+        [...Array(numberOfLoops)].map(async () => {
+           return await getRandomWord({slow: true})
+        })
     ).then(randomWords => {
         randomWords.forEach((word, index) => {
             index = index + 1;
