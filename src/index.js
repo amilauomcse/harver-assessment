@@ -1,5 +1,4 @@
 const {getRandomWordSync, getRandomWord} = require('word-maker');
-const promise = require('promise');
 const fs = require('fs');
 
 const numberOfLoops = 100;
@@ -32,7 +31,7 @@ function printRandomWordsSynchronously() {
     let output = `<<<<<<<<<< Starts Printing Random Words Synchronously >>>>>>>>>>>>\n`;
 
     output += [...Array(numberOfLoops)].map((_, i) => {
-        let index = i + 1;
+        const index = i + 1;
         return `${index} : ${getRandomWordSync()}`;
     }).join('\n');
 
@@ -49,7 +48,7 @@ function printFizzBuzzSynchronously() {
     let output = `<<<<<<<<<< Starts Printing FizzBuzz Synchronously >>>>>>>>>>>>\n`;
 
     output += [...Array(numberOfLoops)].map((_, i) => {
-        let index = i + 1;
+        const index = i + 1;
         return findFizzBuzz(index, getRandomWordSync());
     }).join('\n');
 
@@ -65,7 +64,7 @@ function printRandomWordsAsynchronously() {
     let output = `<<<<<<<<<< Starts Printing Random Words Asynchronously >>>>>>>>>>>>\n`;
     let counter = 0;
     [...Array(numberOfLoops)].map((_, i) => {
-        let index = i + 1;
+        const index = i + 1;
         getRandomWord().then(word => {
             output += `${index} : ${word}\n`;
         }).finally(() => {
@@ -88,7 +87,7 @@ function printFizzBuzzAsynchronously() {
 
     let counter = 0;
     [...Array(numberOfLoops)].map((_, i) => {
-        let index = i + 1;
+        const index = i + 1;
         getRandomWord().then(word => {
             output += findFizzBuzz(index, word) + `\n`;
         }).finally(() => {
@@ -104,33 +103,27 @@ function printFizzBuzzAsynchronously() {
 //this can be used for both task 4 and 5
 function generateFizzBuzzSynchronouslyWithError() {
     return [...Array(numberOfLoops)].map((_, i) => {
-        let index = i + 1;
+        const index = i + 1;
         try {
             const word = getRandomWordSync({withErrors: true});
             return findFizzBuzz(index, word);
         } catch (error) {
-            return `${index}` + ` : It shouldn't break anything!`;
+            return `${index} : It shouldn't break anything!`;
         }
     }).join('\n');
 }
 
 //this can be used for both task 4 and 5
-function generateFizzBuzzAsynchronouslyWithError(callback) {
-    let counter = 0;
-    let output = "";
-    [...Array(numberOfLoops)].map((_, i) => {
+function generateFizzBuzzAsynchronouslyWithError() {
+    return ([...Array(numberOfLoops)].map(async (_, i) => {
         let index = i + 1;
-        getRandomWord({withErrors: true}).then(word => {
-            output += findFizzBuzz(index, word) + `\n`;
-        }).catch(error => {
-            output += `${index}` + ` : It shouldn't break anything!\n`;
-        }).finally(() => {
-            counter++;
-            if (counter === numberOfLoops) {
-                callback(output)
-            }
-        });
-    });
+        try {
+            const word = await getRandomWord({withErrors: true});
+            return findFizzBuzz(index, word) + `\n`;
+        } catch (error) {
+            return `${index}` + ` : It shouldn't break anything!\n`;
+        }
+    }));
 }
 
 //Task 4 first part
@@ -151,12 +144,19 @@ setTimeout(printFizzBuzzAsynchronouslyWithError, 5000);
 
 function printFizzBuzzAsynchronouslyWithError() {
     let output = `<<<<<<<<<< Starts Printing FizzBuzz Asynchronously With Error >>>>>>>>>>>>\n`;
-
-    generateFizzBuzzAsynchronouslyWithError(function (result) {
-        output += result;
-        output += `<<<<<<<<<< Ends Printing FizzBuzz Asynchronously With Error >>>>>>>>>>>>\n`;
-        console.log(output);
+    const promiseList = generateFizzBuzzAsynchronouslyWithError();
+    let counter = 0;
+    promiseList.forEach(promise => {
+        promise.then(word => {
+            counter++;
+            output += word;
+            if (counter === numberOfLoops) {
+                output += `<<<<<<<<<< Ends Printing FizzBuzz Asynchronously With Error >>>>>>>>>>>>\n`;
+                console.log(output);
+            }
+        })
     });
+
 
 }
 
@@ -186,16 +186,24 @@ function writeFizzBuzzAsynchronouslyWithErrorToFile() {
 
     let content = "\n\n<<<<<<<<<< Starts Writing FizzBuzz Asynchronously to File with Error >>>>>>>>>>>>\n\n";
 
-    generateFizzBuzzAsynchronouslyWithError(function (result) {
-        content += result;
-        fs.writeFile(textFile, content, {flag: 'a'}, err => {
-            if (err) {
-                console.error(err);
-                return
+    const promiseList = generateFizzBuzzAsynchronouslyWithError();
+    let counter = 0;
+    promiseList.forEach(promise => {
+        promise.then(word => {
+            counter++;
+            content += word;
+            if (counter === numberOfLoops) {
+                fs.writeFile(textFile, content, {flag: 'a'}, err => {
+                    if (err) {
+                        console.error(err);
+                        return
+                    }
+                    console.log(`<<<<<<<<<< Ends Writing FizzBuzz Asynchronously to File with Error, find the ${textFile} in root of the project >>>>>>>>>>>>\n`);
+                })
             }
-            console.log(`<<<<<<<<<< Ends Writing FizzBuzz Asynchronously to File with Error, find the ${textFile} in root of the project >>>>>>>>>>>>\n`);
         })
     });
+
 }
 
 
@@ -204,12 +212,12 @@ setTimeout(printFizzBuzzAsynchronouslyInAscendingOrder, 8000);
 
 async function printFizzBuzzAsynchronouslyInAscendingOrder() {
     let output = `<<<<<<<<<< Starts Printing FizzBuzz Asynchronously in Ascending Order >>>>>>>>>>>>\n`;
-    let startTime = (new Date()).getTime();
+    const startTime = (new Date()).getTime();
     for (let index = 1; index <= numberOfLoops; index++) {
         const word = await getRandomWord();
         output += findFizzBuzz(index, word) + `\n`;
     }
-    let endTime = (new Date()).getTime();
+    const endTime = (new Date()).getTime();
     output += `<<<<<<<<<< Ends Printing FizzBuzz Asynchronously in Ascending Order, Time taken : ${endTime - startTime} ms >>>>>>>>>>>>\n`;
     console.log(output);
 }
@@ -222,7 +230,7 @@ function printFizzBuzzAsynchronouslyWithSlowOption() {
     let output = `<<<<<<<<<< Starts Printing FizzBuzz Asynchronously with Slow Option >>>>>>>>>>>>\n`;
 
     let promiseList = [];
-    let startTime = (new Date()).getTime();
+    const startTime = (new Date()).getTime();
     [...Array(numberOfLoops)].map(() => {
         promiseList.push(getRandomWord({slow: true}));
     });
@@ -233,7 +241,7 @@ function printFizzBuzzAsynchronouslyWithSlowOption() {
             index = index + 1;
             output += findFizzBuzz(index, word) + `\n`;
         });
-        let endTime = (new Date()).getTime();
+        const endTime = (new Date()).getTime();
         output += `<<<<<<<<<< Ends Printing FizzBuzz Asynchronously with Slow Option, Time taken : ${endTime - startTime} ms >>>>>>>>>>>>\n`;
         console.log(output);
     })

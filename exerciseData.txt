@@ -1,206 +1,205 @@
 <<<<<<<<<< Starts Writing FizzBuzz Synchronously to File with Error >>>>>>>>>>>>
 
-1 : explore
-2 : animal
-3 : Fizz
-4 : ride
+1 : It shouldn't break anything!
+2 : thirty
+3 : It shouldn't break anything!
+4 : short
 5 : Buzz
 6 : Fizz
-7 : It shouldn't break anything!
-8 : rose
+7 : find
+8 : pilot
 9 : Fizz
 10 : Buzz
-11 : shore
+11 : fully
 12 : Fizz
-13 : It shouldn't break anything!
-14 : straw
-15 : Fizz Buzz
-16 : blind
-17 : mighty
-18 : Fizz
-19 : play
+13 : period
+14 : buy
+15 : FizzBuzz
+16 : machine
+17 : It shouldn't break anything!
+18 : It shouldn't break anything!
+19 : has
 20 : Buzz
 21 : Fizz
-22 : beside
-23 : driven
+22 : feet
+23 : It shouldn't break anything!
 24 : It shouldn't break anything!
 25 : Buzz
-26 : It shouldn't break anything!
+26 : front
 27 : Fizz
-28 : It shouldn't break anything!
-29 : college
-30 : Fizz Buzz
-31 : studying
-32 : thou
+28 : common
+29 : feathers
+30 : FizzBuzz
+31 : many
+32 : result
 33 : Fizz
-34 : point
-35 : It shouldn't break anything!
-36 : It shouldn't break anything!
-37 : settle
-38 : television
+34 : It shouldn't break anything!
+35 : Buzz
+36 : Fizz
+37 : enter
+38 : difficulty
 39 : Fizz
 40 : It shouldn't break anything!
-41 : rocket
+41 : It shouldn't break anything!
 42 : Fizz
-43 : bone
+43 : afternoon
 44 : It shouldn't break anything!
-45 : Fizz Buzz
-46 : safety
-47 : properly
+45 : FizzBuzz
+46 : It shouldn't break anything!
+47 : It shouldn't break anything!
 48 : Fizz
-49 : applied
+49 : calm
 50 : Buzz
 51 : Fizz
-52 : surface
-53 : away
+52 : involved
+53 : around
 54 : Fizz
-55 : Buzz
-56 : sport
-57 : It shouldn't break anything!
-58 : rain
-59 : result
-60 : Fizz Buzz
-61 : attached
-62 : third
+55 : It shouldn't break anything!
+56 : conversation
+57 : Fizz
+58 : older
+59 : carry
+60 : FizzBuzz
+61 : beat
+62 : directly
 63 : Fizz
-64 : fall
+64 : earn
 65 : Buzz
-66 : It shouldn't break anything!
-67 : piano
-68 : hand
+66 : Fizz
+67 : atmosphere
+68 : diameter
 69 : Fizz
 70 : Buzz
-71 : moon
+71 : entirely
 72 : Fizz
-73 : planet
-74 : research
-75 : It shouldn't break anything!
-76 : peace
-77 : world
-78 : Fizz
-79 : It shouldn't break anything!
+73 : view
+74 : rose
+75 : FizzBuzz
+76 : vessels
+77 : rice
+78 : It shouldn't break anything!
+79 : room
 80 : Buzz
-81 : Fizz
-82 : cake
-83 : seed
+81 : It shouldn't break anything!
+82 : office
+83 : hold
 84 : Fizz
 85 : Buzz
-86 : dress
-87 : Fizz
-88 : It shouldn't break anything!
-89 : let
+86 : common
+87 : It shouldn't break anything!
+88 : cup
+89 : nose
 90 : It shouldn't break anything!
-91 : cook
-92 : porch
+91 : scientist
+92 : city
 93 : Fizz
-94 : process
+94 : author
 95 : Buzz
 96 : Fizz
-97 : shape
-98 : work
-99 : Fizz
+97 : which
+98 : fairly
+99 : It shouldn't break anything!
 100 : Buzz
-
 
 <<<<<<<<<< Starts Writing FizzBuzz Asynchronously to File with Error >>>>>>>>>>>>
 
-2 : perfect
-29 : It shouldn't break anything!
-49 : loud
-53 : flies
-60 : Fizz Buzz
-61 : review
-71 : season
-72 : Fizz
-40 : Buzz
-67 : bad
-70 : Buzz
-80 : Buzz
-12 : Fizz
-25 : Buzz
-26 : It shouldn't break anything!
-96 : Fizz
-22 : wagon
-28 : known
-33 : Fizz
-50 : It shouldn't break anything!
-55 : Buzz
-81 : Fizz
-93 : It shouldn't break anything!
-4 : section
-6 : Fizz
-8 : It shouldn't break anything!
-59 : doing
-5 : Buzz
-31 : combination
-52 : It shouldn't break anything!
-68 : climb
-79 : whispered
-88 : spoken
-11 : check
-27 : Fizz
-36 : Fizz
-58 : machine
-74 : imagine
-3 : Fizz
-19 : skill
-20 : Buzz
-23 : exactly
-30 : Fizz Buzz
-45 : It shouldn't break anything!
-95 : It shouldn't break anything!
-77 : layers
-84 : Fizz
-100 : Buzz
-16 : plant
-65 : Buzz
-86 : tears
-7 : edge
-14 : It shouldn't break anything!
-43 : die
-76 : It shouldn't break anything!
+1 : broke
+8 : neighborhood
+15 : It shouldn't break anything!
+16 : right
+30 : FizzBuzz
+34 : tight
+55 : It shouldn't break anything!
+56 : rise
+77 : touch
 87 : Fizz
-89 : It shouldn't break anything!
+10 : It shouldn't break anything!
+13 : It shouldn't break anything!
+25 : Buzz
 35 : Buzz
-51 : Fizz
-82 : carbon
+46 : problem
+53 : bone
+64 : It shouldn't break anything!
+95 : Buzz
+27 : Fizz
+86 : know
+97 : experience
+36 : Fizz
+59 : class
+61 : struck
+94 : him
+23 : It shouldn't break anything!
+28 : strike
+72 : Fizz
+98 : It shouldn't break anything!
+58 : It shouldn't break anything!
+67 : parts
+68 : motion
+99 : Fizz
+6 : Fizz
 18 : Fizz
-98 : price
-15 : Fizz Buzz
-34 : It shouldn't break anything!
-73 : It shouldn't break anything!
-78 : Fizz
-83 : difficulty
-94 : quick
+22 : shallow
 24 : Fizz
-32 : sometime
-39 : It shouldn't break anything!
-41 : hospital
+50 : It shouldn't break anything!
+70 : It shouldn't break anything!
+81 : Fizz
+93 : Fizz
+3 : Fizz
+14 : It shouldn't break anything!
 42 : Fizz
-46 : quickly
-54 : Fizz
+71 : It shouldn't break anything!
+96 : Fizz
+62 : uncle
+75 : FizzBuzz
+78 : Fizz
+90 : FizzBuzz
+5 : Buzz
+12 : Fizz
+40 : Buzz
+9 : Fizz
+79 : angle
+82 : structure
+21 : Fizz
+37 : particular
+52 : young
+31 : wonder
 57 : Fizz
 69 : Fizz
-44 : dangerous
-64 : recognize
-85 : Buzz
-99 : Fizz
-13 : hit
-17 : population
-21 : Fizz
-38 : noon
-62 : else
-75 : It shouldn't break anything!
-92 : shinning
-1 : imagine
-9 : Fizz
-10 : Buzz
-37 : fox
-47 : bad
-48 : Fizz
-91 : It shouldn't break anything!
-97 : bag
-56 : summer
+83 : It shouldn't break anything!
+7 : largest
+19 : distance
+45 : FizzBuzz
 63 : Fizz
-66 : Fizz
-90 : Fizz Buzz
+65 : Buzz
+76 : slope
+20 : It shouldn't break anything!
+44 : It shouldn't break anything!
+51 : Fizz
+92 : heard
+2 : together
+4 : aboard
+41 : everywhere
+89 : empty
+91 : hello
+43 : hearing
+49 : tired
+54 : Fizz
+60 : FizzBuzz
+66 : It shouldn't break anything!
+17 : lack
+26 : shot
+32 : describe
+33 : It shouldn't break anything!
+47 : It shouldn't break anything!
+11 : police
+39 : Fizz
+80 : Buzz
+85 : Buzz
+88 : rod
+100 : Buzz
+29 : It shouldn't break anything!
+38 : length
+48 : Fizz
+73 : branch
+74 : shells
+84 : Fizz
