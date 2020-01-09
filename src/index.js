@@ -62,20 +62,24 @@ setTimeout(printRandomWordsAsynchronously, 2000);
 
 function printRandomWordsAsynchronously() {
     let output = `<<<<<<<<<< Starts Printing Random Words Asynchronously >>>>>>>>>>>>\n`;
-    let counter = 0;
-    [...Array(numberOfLoops)].map((_, i) => {
+    const promiseList = [...Array(numberOfLoops)].map(async (_, i) => {
         const index = i + 1;
-        getRandomWord().then(word => {
-            output += `${index} : ${word}\n`;
-        }).finally(() => {
+        const word = await getRandomWord();
+        return `${index} : ${word}\n`;
+
+    });
+
+    let counter = 0;
+    promiseList.forEach(promise => {
+        promise.then(word => {
             counter++;
+            output += word;
             if (counter === numberOfLoops) {
                 output += `<<<<<<<<<< Ends Printing Random Words Asynchronously >>>>>>>>>>>>\n`;
                 console.log(output);
             }
-        });
+        })
     });
-
 }
 
 
@@ -85,18 +89,22 @@ setTimeout(printFizzBuzzAsynchronously, 3000);
 function printFizzBuzzAsynchronously() {
     let output = `<<<<<<<<<< Starts Printing FizzBuzz Asynchronously >>>>>>>>>>>>\n`;
 
-    let counter = 0;
-    [...Array(numberOfLoops)].map((_, i) => {
+    const promiseList = [...Array(numberOfLoops)].map(async (_, i) => {
         const index = i + 1;
-        getRandomWord().then(word => {
-            output += findFizzBuzz(index, word) + `\n`;
-        }).finally(() => {
+        const word = await getRandomWord();
+        return findFizzBuzz(index, word) + `\n`;
+    });
+
+    let counter = 0;
+    promiseList.forEach(promise => {
+        promise.then(word => {
             counter++;
+            output += word;
             if (counter === numberOfLoops) {
                 output += `<<<<<<<<<< Ends Printing FizzBuzz Asynchronously >>>>>>>>>>>>\n`;
                 console.log(output);
             }
-        });
+        })
     });
 }
 
