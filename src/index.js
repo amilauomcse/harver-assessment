@@ -7,6 +7,7 @@ const secondDividingNumber = 5;
 const firstPrintingWord = "Fizz";
 const secondPrintingWord = "Buzz";
 const textFile = "exerciseData.txt";
+const arrayToLoop = (new Array(numberOfLoops)).fill("");
 
 function isDividable(number, divider) {
     return number % divider === 0;
@@ -30,7 +31,7 @@ printRandomWordsSynchronously();
 function printRandomWordsSynchronously() {
     let output = `<<<<<<<<<< Starts Printing Random Words Synchronously >>>>>>>>>>>>\n`;
 
-    output += [...new Array(numberOfLoops)].map((_, index) => {
+    output += arrayToLoop.map((_, index) => {
         return `${index + 1} : ${getRandomWordSync()}`;
     }).join('\n');
 
@@ -46,7 +47,7 @@ setTimeout(printFizzBuzzSynchronously, 1000);
 function printFizzBuzzSynchronously() {
     let output = `<<<<<<<<<< Starts Printing FizzBuzz Synchronously >>>>>>>>>>>>\n`;
 
-    output += [...new Array(numberOfLoops)].map((_, index) => {
+    output += arrayToLoop.map((_, index) => {
         return findFizzBuzz(index + 1, getRandomWordSync());
     }).join('\n');
 
@@ -62,7 +63,7 @@ async function printRandomWordsAsynchronously() {
     let output = `<<<<<<<<<< Starts Printing Random Words Asynchronously >>>>>>>>>>>>\n`;
 
     const randomWords = await Promise.all(
-        [...new Array(numberOfLoops)].map(async (_, index) => {
+        arrayToLoop.map(async (_, index) => {
             const word = await getRandomWord();
             return `${index + 1} : ${word}\n`;
         })
@@ -83,7 +84,7 @@ async function printFizzBuzzAsynchronously() {
     let output = `<<<<<<<<<< Starts Printing FizzBuzz Asynchronously >>>>>>>>>>>>\n`;
 
     const randomWords = await Promise.all(
-        [...new Array(numberOfLoops)].map(async (_, index) => {
+        arrayToLoop.map(async (_, index) => {
             const word = await getRandomWord();
             return findFizzBuzz(index + 1, word) + `\n`;
         })
@@ -98,7 +99,7 @@ async function printFizzBuzzAsynchronously() {
 
 //this can be used for both task 4 and 5
 function generateFizzBuzzSynchronouslyWithError() {
-    return [...new Array(numberOfLoops)].map((_, index) => {
+    return arrayToLoop.map((_, index) => {
         try {
             const word = getRandomWordSync({withErrors: true});
             return findFizzBuzz(index + 1, word);
@@ -110,7 +111,7 @@ function generateFizzBuzzSynchronouslyWithError() {
 
 //this can be used for both task 4 and 5
 function generateFizzBuzzAsynchronouslyWithError() {
-    return ([...new Array(numberOfLoops)].map(async (_, index) => {
+    return (arrayToLoop.map(async (_, index) => {
         try {
             const word = await getRandomWord({withErrors: true});
             return findFizzBuzz(index + 1, word) + `\n`;
@@ -198,7 +199,7 @@ async function printFizzBuzzAsynchronouslyWithSlowOption() {
 
     const startTime = (new Date()).getTime();
     const randomWords = await Promise.all(
-        [...new Array(numberOfLoops)].map(async () => {
+        arrayToLoop.map(async () => {
             return await getRandomWord({slow: true})
         })
     );
