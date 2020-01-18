@@ -30,9 +30,8 @@ printRandomWordsSynchronously();
 function printRandomWordsSynchronously() {
     let output = `<<<<<<<<<< Starts Printing Random Words Synchronously >>>>>>>>>>>>\n`;
 
-    output += [...Array(numberOfLoops)].map((_, i) => {
-        const index = i + 1;
-        return `${index} : ${getRandomWordSync()}`;
+    output += [...Array(numberOfLoops)].map((_, index) => {
+        return `${index + 1} : ${getRandomWordSync()}`;
     }).join('\n');
 
     output += `\n<<<<<<<<<< Ends Printing Random Words Synchronously >>>>>>>>>>>>\n`;
@@ -47,9 +46,8 @@ setTimeout(printFizzBuzzSynchronously, 1000);
 function printFizzBuzzSynchronously() {
     let output = `<<<<<<<<<< Starts Printing FizzBuzz Synchronously >>>>>>>>>>>>\n`;
 
-    output += [...Array(numberOfLoops)].map((_, i) => {
-        const index = i + 1;
-        return findFizzBuzz(index, getRandomWordSync());
+    output += [...Array(numberOfLoops)].map((_, index) => {
+        return findFizzBuzz(index + 1, getRandomWordSync());
     }).join('\n');
 
     output += `\n<<<<<<<<<< Ends Printing FizzBuzz Synchronously >>>>>>>>>>>>\n`;
@@ -85,10 +83,9 @@ async function printFizzBuzzAsynchronously() {
     let output = `<<<<<<<<<< Starts Printing FizzBuzz Asynchronously >>>>>>>>>>>>\n`;
 
     const randomWords = await Promise.all(
-        [...Array(numberOfLoops)].map(async (_, i) => {
-            const index = i + 1;
+        [...Array(numberOfLoops)].map(async (_, index) => {
             const word = await getRandomWord();
-            return findFizzBuzz(index, word) + `\n`;
+            return findFizzBuzz(index + 1, word) + `\n`;
         })
     );
     for (const word of randomWords) {
@@ -101,26 +98,24 @@ async function printFizzBuzzAsynchronously() {
 
 //this can be used for both task 4 and 5
 function generateFizzBuzzSynchronouslyWithError() {
-    return [...Array(numberOfLoops)].map((_, i) => {
-        const index = i + 1;
+    return [...Array(numberOfLoops)].map((_, index) => {
         try {
             const word = getRandomWordSync({withErrors: true});
-            return findFizzBuzz(index, word);
+            return findFizzBuzz(index + 1, word);
         } catch (error) {
-            return `${index} : It shouldn't break anything!`;
+            return `${index + 1} : It shouldn't break anything!`;
         }
     }).join('\n');
 }
 
 //this can be used for both task 4 and 5
 function generateFizzBuzzAsynchronouslyWithError() {
-    return ([...Array(numberOfLoops)].map(async (_, i) => {
-        let index = i + 1;
+    return ([...Array(numberOfLoops)].map(async (_, index) => {
         try {
             const word = await getRandomWord({withErrors: true});
-            return findFizzBuzz(index, word) + `\n`;
+            return findFizzBuzz(index + 1, word) + `\n`;
         } catch (error) {
-            return `${index}` + ` : It shouldn't break anything!\n`;
+            return `${index + 1}` + ` : It shouldn't break anything!\n`;
         }
     }));
 }
